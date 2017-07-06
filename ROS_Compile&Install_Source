@@ -1,0 +1,38 @@
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu saucy main" > /etc/apt/sources.list.d/ros-latest.list'
+
+wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+
+sudo apt-get update
+
+sudo apt-get install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential python-pip libogre-1.8-dev
+
+sudo pip install -U rosdep rosinstall_generator wstool rosinstall
+
+sudo rosdep init
+
+rosdep update
+
+mkdir ~/ros_catkin_ws
+
+cd ~/ros_catkin_ws
+
+rosinstall_generator desktop_full --rosdistro hydro --deps --wet-only --tar > hydro-desktop-full-wet.rosinstall
+
+wstool init -j8 src hydro-desktop-full-wet.rosinstall
+
+rosdep install --from-paths src --ignore-src --rosdistro hydro -y
+
+rosdep check --from-paths src --ignore-src --rosdistro hydro -y
+
+rosdep check --from-paths src --ignore-src --rosdistro hydro | grep apt | grep -o gazebo2 | awk '{print $2;}' | xargs sudo apt-get install -y
+
+sudo cp /usr/include/OGRE/* /usr/include
+
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US
+./src/catkin/bin/catkin_make_isolated --install
+export LANG=es_ES.UTF-8
+export LANGUAGE=es_ES
+
+echo "source ~/ros_catkin_ws/install_isolated/setup.bash" >> ~/.bashrc
+

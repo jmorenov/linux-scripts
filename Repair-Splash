@@ -1,0 +1,9 @@
+#!/bin/bash
+
+resolution="1024x768x32"
+
+sudo apt-get install v86d
+sudo echo "GRUB_GFXMODE=$resolution" >> /etc/default/grub && echo "GRUB_GFXPAYLOAD_LINUX=keep" >> /etc/default/grub
+echo FRAMEBUFFER=y | sudo tee /etc/initramfs-tools/conf.d/splash
+sudo update-initramfs -u
+sudo update-grub2

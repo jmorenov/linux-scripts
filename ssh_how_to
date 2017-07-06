@@ -1,0 +1,14 @@
+#Remote server
+chmod 755 ~
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+
+#Local server
+ssh-keygen -t rsa -f ~/.ssh/id_rsa
+chmod 755 ~
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_rsa
+chmod 600 ~/.ssh/config
+ssh-copy-id -i ~/.ssh/id_rsa.pub user@ip
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa

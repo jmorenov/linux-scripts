@@ -1,0 +1,2 @@
+gksudo echo 'JAVA_HOME="/usr/lib/jvm/default-java"' >> /etc/environment
+source /etc/environment

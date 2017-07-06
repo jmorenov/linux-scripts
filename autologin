@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#AutoLogin OFF
+if [ "$1" -le "0" ]; then
+echo "[SeatDefaults]
+greeter-session=lightdm-gtk-greeter
+user-session=xubuntu" > /etc/lightdm/lightdm.conf
+
+
+#AutoLogin ON
+else
+echo "[SeatDefaults]
+greeter-session=lightdm-gtk-greeter
+user-session=xubuntu
+autologin-user=jmorenov
+autologin-user-timeout=0" > /etc/lightdm/lightdm.conf
+fi

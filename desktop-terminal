@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ "$1" -le "0" ]; then
+desktop=($(wmctrl -d | grep "*"))
+wmctrl -s 3
+alltray -x -s -nt -stask -g +5+10 "gnome-terminal"&
+sleep 0.32
+wmctrl -s $desktop
+
+else
+alltray -x -s -nt -stask -g +5+10 "gnome-terminal"&
+fi

@@ -1,0 +1,2 @@
+#!/bin/bash
+mkvmerge -o output.mkv input.mkv --language 0:en subs.srt

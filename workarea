@@ -1,0 +1,41 @@
+#!/bin/bash
+
+hide=$(xfconf-query -c xfce4-panel -p /panels/panel-2/autohide-behavior)
+random_init=$RANDOM
+xfconf-query -c xfce4-panel -p /panels/panel-2/random -s $random_init
+
+if [ "$hide" = "2" ]; then
+	xfconf-query -c xfce4-panel -p /panels/panel-2/nrows -s 1
+	xfconf-query -c xfce4-panel -p /panels/panel-2/size -s 128
+	xfconf-query -c xfce4-panel -p /panels/panel-2/position -s "p=0;x=2334;y=526"
+	xfconf-query -c xfce4-panel -p /panels/panel-2/length -s 1
+	xfconf-query -c xfce4-panel -p /panels/panel-2/mode -s 0
+	xfconf-query -c xfce4-panel -p /panels/panel-2/enter-opacity -s 82
+	xfconf-query -c xfce4-panel -p /panels/panel-2/leave-opacity -s 82
+	xfconf-query -c xfce4-panel -p /panels/panel-2/autohide-behavior -s 0
+
+	desktop=($(wmctrl -d | grep "*"))
+	desktop_now=($(wmctrl -d | grep "*"))
+	let delay=1
+	sleep_time=0.05
+	let time=$(date +%S)
+	let time_diff=$(date +%S)-$time
+	hide=$(xfconf-query -c xfce4-panel -p /panels/panel-2/autohide-behavior)
+	random=$(xfconf-query -c xfce4-panel -p /panels/panel-2/random)
+
+	while [ $time_diff -le $delay ] && [ "${desktop[0]}" = "${desktop_now[0]}" ]  && [ "$hide" = "0" ] && [ "$random" = "$random_init" ]; do
+		desktop_now=($(wmctrl -d | grep "*"))
+		let time_diff=$(date +%S)-$time
+		hide=$(xfconf-query -c xfce4-panel -p /panels/panel-2/autohide-behavior)
+		random=$(xfconf-query -c xfce4-panel -p /panels/panel-2/random)
+		sleep $sleep_time
+	done
+fi
+
+xfconf-query -c xfce4-panel -p /panels/panel-2/enter-opacity -s 0
+xfconf-query -c xfce4-panel -p /panels/panel-2/leave-opacity -s 0
+xfconf-query -c xfce4-panel -p /panels/panel-2/nrows -s 1
+xfconf-query -c xfce4-panel -p /panels/panel-2/size -s 16
+xfconf-query -c xfce4-panel -p /panels/panel-2/length -s 1
+xfconf-query -c xfce4-panel -p /panels/panel-2/position -s "p=0;x=0;y=0"
+xfconf-query -c xfce4-panel -p /panels/panel-2/autohide-behavior -s 2

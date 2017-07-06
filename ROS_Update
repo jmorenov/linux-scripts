@@ -1,0 +1,15 @@
+cd ~/ros_catkin_ws
+
+mv -i hydro-desktop-full-wet.rosinstall hydro-desktop-full-wet.rosinstall.old
+
+rosinstall_generator desktop_full --rosdistro hydro --deps --wet-only --tar > hydro-desktop-full-wet.rosinstall
+
+diff -u hydro-desktop-full-wet.rosinstall hydro-desktop-full-wet.rosinstall.old
+
+wstool merge -t src hydro-desktop-full-wet.rosinstall
+
+wstool update -t src
+
+./src/catkin/bin/catkin_make_isolated --install
+
+source ~/ros_catkin_ws/install_isolated/setup.bash

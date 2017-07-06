@@ -1,0 +1,11 @@
+#!/bin/bash
+
+desktop=($(wmctrl -d | grep "*"))
+pactl set-sink-volume 0 15%
+wmctrl -s 0
+/usr/bin/vlc /home/Media/Backups/Radios/MAXIMAFM.pls&
+thunderbird&
+/opt/google/chrome/google-chrome --profile-directory=Default --app-id=boeajhmfdjldchidhphikilcgdacljfm&
+/opt/google/chrome/google-chrome --profile-directory=Default --app-id=hbdpomandigafcibbmofojjchbcdagbl&
+xrandr --output HDMI2 --primary
+/usr/bin/google-chrome-stable&
