@@ -1,0 +1,7 @@
+#https://www.jmramirez.pro/tutorial/time-machine-en-linux/
+
+#https://samuelhewitt.com/blog/2015-09-12-debian-linux-server-mac-os-time-machine-backups-how-to
+sudo systemctl enable netatalk.service
+sudo systemctl start netatalk.service
+sudo systemctl enable avahi-daemon.service
+sudo systemctl start avahi-daemon.service

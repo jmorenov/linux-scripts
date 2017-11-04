@@ -1,0 +1,7 @@
+# How to install and run nvc server
+
+sudo apt-get install x11vnc vnc-java
+x11vnc -storepasswd
+
+#Add to auto start
+x11vnc -forever -usepw -httpdir /usr/share/vnc-java/ -httpport 5800
