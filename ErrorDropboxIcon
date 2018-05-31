@@ -1,3 +1,5 @@
 #!/bin/bash
+sleep 10s
+killall dropbox
 sleep 5s
 DBUS_SESSION_BUS_ADDRESS="" dropbox start
