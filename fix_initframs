@@ -1,0 +1,5 @@
+fsck -f /dev/sdaX
+
+reboot
+
+sck.ext4 -p -b 884736 -B 4096 /dev/sda8
