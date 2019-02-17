@@ -1,0 +1,14 @@
+# Mount root partition:
+sudo mount /dev/sdXY /mnt # /dev/sdXY is your root partition, e.g. /dev/sda1
+
+# If you have a separate boot partition you'll need to mount it also:
+sudo mount /dev/sdYY /mnt/boot
+
+# Mount your virtual filesystems:
+for i in /dev /dev/pts /proc /sys /run; do sudo mount -B $i /mnt$i; done
+
+# Chroot
+sudo chroot /mnt
+
+sudo update-grub
+sudo grub-install /dev/sda
