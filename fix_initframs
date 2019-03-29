@@ -1,5 +1,11 @@
 fsck -f /dev/sdaX
 
+sck.ext4 -p -b 884736 -B 4096 /dev/sda8
+
 reboot
 
-sck.ext4 -p -b 884736 -B 4096 /dev/sda8
+touch /forcefsck
+
+rm .Xauthority // like the_Seppi said
+sudo chown -R $USER:$USER $HOME // like praveen said
+chmod +x -R $HOME
