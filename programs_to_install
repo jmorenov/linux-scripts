@@ -1,7 +1,7 @@
 -----------------------
 Repositorios ubuntu:
 -----------------------
-wine simple-scan gimp gcc g++ ddd gdb emacs23 wxmaxima vlc ghex gnuplot gcc-multilib gparted slime clisp v86d openjdk-7-jdk openjdk-7-jre wmctrl xautomation xbindkeys git nodejs npm
+wine simple-scan gimp gcc g++ ddd gdb emacs23 wxmaxima vlc ghex gnuplot gcc-multilib gparted slime clisp v86d openjdk-8-jdk openjdk-8-jre wmctrl xautomation xbindkeys git nodejs npm
 
 -----------------------
 Paquete deb:

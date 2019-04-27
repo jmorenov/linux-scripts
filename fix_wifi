@@ -1,0 +1,6 @@
+sudo apt-get download $(apt-cache depends --recurse --no-recommends --no-suggests --no-conflicts --no-breaks --no-replaces --no-enhances --no-pre-depends bcmwl-kernel-source | grep "^\w" | sort -u)
+
+dpkg-scanpackages . | gzip -9c > Packages.gz
+
+echo "deb file:<your folder here> ./" | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
