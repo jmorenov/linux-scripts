@@ -1,23 +1,34 @@
-#############################################
+ç#############################################
 #         Logitech MX Perfomance Map        #
 #############################################
 # Show workspaces
-"xte 'key Super_L'"
+"xte 'keydown Super_L' 'key Down' 'keyup Super_L'"
   b:10
 
-"xte 'key Page_Up'"
-  b:8
+#Subir volumen con la rueda del pulgar
+#"xte 'key XF86AudioRaiseVolume'"
+#  b:6
 
-"xte 'key Page_Down'"
-  b:9
+#Bajar volumen con rueda del pulgar
+#"xte 'key XF86AudioLowerVolume'"
+#  b:7
+
+#"xte 'keydown Super_L' 'key Down' 'keyup Super_L'"
+#   Control+Alt+Mod2 + Tab
+
+#"xte 'key Page_Up'"
+#  b:8
+
+#"xte 'key Page_Down'"
+#  b:9
 
 #"xte 'keydown Control_L' 'key KP_Add' 'keyup Control_L'"
 #  b:13 
 
 #"xflock4"
 #  b:13
-"xte 'keydown Control_L' 'key Tab' 'keyup Control_L'"
-   b:13
+#"xte 'keydown Control_L' 'key Tab' 'keyup Control_L'"
+#   b:13
 
 ##################################
 # End of xbindkeys configuration #
