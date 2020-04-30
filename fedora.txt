@@ -1,0 +1,9 @@
+sudo dnf install java-11-openjdk
+sudo dnf install java-1.8.0-openjdk
+sudo dnf install java-11-openjdk-devel
+sudo dnf install java-1.8.0-openjdk-devel.x86_64
+sudo alternatives --config java
+sudo alternatives --config javac
+
+https://tecadmin.net/install-apache-maven-on-fedora/
+https://computingforgeeks.com/how-to-install-mysql-5-7-on-fedora/
