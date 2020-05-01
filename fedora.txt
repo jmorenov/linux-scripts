@@ -7,3 +7,7 @@ sudo alternatives --config javac
 
 https://tecadmin.net/install-apache-maven-on-fedora/
 https://computingforgeeks.com/how-to-install-mysql-5-7-on-fedora/
+
+
+mysql -h localhost -u root -p
+mysql>uninstall plugin validate_password;
