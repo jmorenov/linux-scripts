@@ -10,10 +10,11 @@ export SHELL=/usr/bin/zsh
 
 # If you come from bash you might have to change your $PATH.
 export NODE_PATH=$NODE_PATH:$HOME/.npm-global/lib/node_modules
-export JAVA_HOME=/usr/java/latest
-export PATH=$JAVA_HOME/bin:~/.npm-global/bin:$HOME/bin:/usr/local/bin:$PATH
+#export JAVA_HOME=/usr/java/latest
+export JAVA_HOME=`/usr/libexec/java_home -v 11`
+export PATH=$JAVA_HOME/bin:~/.npm-global/bin:$HOME/bin:/usr/local/bin:/usr/bin/python3:$PATH
 
-source ~/.profile
+source ~/.bash_profile
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -24,7 +25,9 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-POWERLEVEL9K_MODE='nerdfont-complete'
+POWERLEVEL9K_MODE="awesome-patched"
+
+DEFAULT_USER=$(whoami)
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -68,7 +71,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions git docker docker-compose autojump zsh-syntax-highlighting dnf npm)
+plugins=(zsh-autosuggestions git docker docker-compose autojump zsh-syntax-highlighting npm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,7 +121,7 @@ alias dipa="dipa"
 alias drm="docker rm"
 alias jh="jhipster"
 alias cl="clear"
-alias open="google-chrome"
+#alias open="google-chrome"
 alias fopen="xdg-open"
 
 function dipa(){
